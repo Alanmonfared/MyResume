@@ -23,11 +23,11 @@ theme = responsiveFontSizes(theme);
 export default function Navbar() {
   const { i18n, t } = useTranslation(["home"]);
 
-	// useEffect(() => {
-	// 	if (localStorage.getItem("i18nextLng")?.length > 2) {
-	// 		i18next.changeLanguage("en");
-	// 	}
-	// }, []);
+	useEffect(() => {
+		if (localStorage.getItem("i18nextLng")?.length > 2) {
+			i18next.changeLanguage("en");
+		}
+	}, []);
 
 	const handleLanguageChange = (e) => {
 		i18n.changeLanguage(e.target.value);
