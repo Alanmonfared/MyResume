@@ -1,4 +1,4 @@
-import React, { useState, useEffect  } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import Container from "@mui/material/Container";
 import { Nav } from "./Navbar.Styled";
@@ -10,6 +10,11 @@ import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import SendIcon from "@mui/icons-material/Send";
 import Stack from "@mui/material/Stack";
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import Select from "@mui/material/Select";
+
 import {
   responsiveFontSizes,
   ThemeProvider,
@@ -21,17 +26,17 @@ let theme = createTheme();
 theme = responsiveFontSizes(theme);
 
 export default function Navbar() {
-  const { i18n, t } = useTranslation(["home"]);
+  const { i18n, t } = useTranslation();
 
-	useEffect(() => {
-		if (localStorage.getItem("i18nextLng")?.length > 2) {
-			i18next.changeLanguage("en");
-		}
-	}, []);
+  // useEffect(() => {
+  // 	if (localStorage.getItem("i18nextLng")?.length > 2) {
+  // 		i18next.changeLanguage("en");
+  // 	}
+  // }, []);
 
-	const handleLanguageChange = (e) => {
-		i18n.changeLanguage(e.target.value);
-	};
+  const handleLanguageChange = (e) => {
+    i18n.changeLanguage(e.target.value);
+  };
   const [isOpen, setIsOpen] = useState(false);
   const handleClick = () => {
     setIsOpen((curr) => !curr);
@@ -48,21 +53,42 @@ export default function Navbar() {
           }}
           maxWidth="xxl"
         >
-          <div className="collapse navbar-collapse" id="navbarNav">
-				<ul className="navbar-nav ml-auto">
-					<li className="nav-item">
-						<select
-							className="nav-link bg-dark border-0 ml-1 mr-2"
-							value={localStorage.getItem("i18nextLng")}
-							onChange={handleLanguageChange}
-						>
-							<option value="en">English</option>
-							<option value="se">sven</option>
-						</select>
-					</li>
-				
-				</ul>
-			</div>
+          {/* <div className="collapse navbar-collapse" id="navbarNav">
+            <ul className="navbar-nav ml-auto">
+              <li className="nav-item">
+                <select
+                  className="nav-link bg-dark border-0 ml-1 mr-2"
+                  value={localStorage.getItem("i18nextLng")}
+                  onChange={handleLanguageChange}
+                >
+                  <option value="en">Engelska</option>
+                  <option value="se">Svenska</option>
+                  <option value="fa">Persiska</option>
+                </select>
+              </li>
+            </ul>
+          </div> */}
+          <img
+            src={require("../../image/AM.png")}
+            alt="logo"
+            style={{ paddingLeft: "1.5rem" }}
+          />
+          <Box sx={{ minWidth: 120 }}>
+            <FormControl fullWidth>
+              <InputLabel id="demo-simple-select-label">Språk</InputLabel>
+              <Select
+                labelId="demo-simple-select-label"
+                id="demo-simple-select"
+                value={localStorage.getItem("i18nextLng")}
+                label="Språk"
+                onChange={handleLanguageChange}
+              >
+                <MenuItem value="en">Engelska</MenuItem>
+                <MenuItem value="se">Svenska</MenuItem>
+                <MenuItem value="fa">Persiska</MenuItem>
+              </Select>
+            </FormControl>
+          </Box>
           {isOpen && (
             <NavbarExtend>
               <ThemeProvider theme={theme}>
@@ -120,7 +146,7 @@ export default function Navbar() {
                   <NavbarExtendLink>
                     <Link
                       style={{ textDecoration: "none", color: "#fff" }}
-                      to="/About"
+                      to="/about"
                       onClick={handleClick}
                     >
                       <Typography marginTop={2} variant={"h4"}>
@@ -130,7 +156,15 @@ export default function Navbar() {
                   </NavbarExtendLink>
 
                   <Stack marginTop={2}>
-                    <Button variant="contained" endIcon={<SendIcon />}>
+                    <Button
+                      variant="contained"
+                      to="#"
+                      onClick={() =>
+                        (window.location = "mailto:alan.a@live.se")
+                      }
+                      component={Link}
+                      endIcon={<SendIcon />}
+                    >
                       Kontakta mig
                     </Button>
                   </Stack>
@@ -138,11 +172,6 @@ export default function Navbar() {
               </ThemeProvider>
             </NavbarExtend>
           )}
-          <img
-            src={require("../../image/AM.png")}
-            alt="logo"
-            style={{ paddingLeft: "1.5rem" }}
-          />
 
           <BurgerButton onClick={handleClick}>
             {isOpen ? <>&#10005;</> : <>&#8801;</>}

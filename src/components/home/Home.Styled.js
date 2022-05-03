@@ -7,11 +7,11 @@ export const ContainerHome = styled(Container)(({ theme }) => ({
   alignItems: "center",
   height: "80vh",
   width: "70%",
-  marginTop:'5rem',
+  marginTop:'auto',
 
   [theme.breakpoints.between("xs", "sm")]: {
     width: "50%",
-    marginTop:'12rem',
+    marginTop:'auto',
     
 
   },
@@ -29,7 +29,7 @@ export const ContainerHome = styled(Container)(({ theme }) => ({
 
 export const ImgBox = styled(Box)(({ theme }) => ({
   position: 'fixed',
-  top:'0px',
+  top:'10px',
   left:'1200px',
   right:'0',
 

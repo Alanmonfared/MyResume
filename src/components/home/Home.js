@@ -9,52 +9,72 @@ import {
   ThemeProvider,
 } from "@mui/material/styles";
 import { useTranslation } from "react-i18next";
-
+import { Link } from "react-router-dom";
+import Stack from "@mui/material/Stack";
+import Button from "@mui/material/Button";
+import SendIcon from "@mui/icons-material/Send";
+import DownloadIcon from "@mui/icons-material/Download";
 let theme = createTheme();
 theme = responsiveFontSizes(theme);
 
+const downloadFile = () => {
+  const link = document.createElement("a");
+  link.download= `Alan_Monfared_CV (1).pdf`;
+  link.href = `../../files/Alan_Monfared_CV (1).pdf`;
+  link.click();
+};
+
 export default function Home() {
   const { t } = useTranslation();
-  const userName = "Alan Monfared"
+  const userName = "Alan Monfared";
   return (
     <ContainerHome>
-      <Box sx={{ zIndex: 1 }} component="div" animation="wave" > 
+      <Box sx={{ zIndex: 1 }} component="div" animation="wave">
         <ThemeProvider theme={theme}>
           <Typography variant="h6" gutterBottom sx={{ color: "#64ffda" }}>
-           {t("home_text")}
+            {t("home_text")}
           </Typography>
+
           <Typography
             variant="h2"
             gutterBottom
             component="div"
             sx={{ color: "#ccd6f6" }}
           >
-            {t("my_name",{name: userName})}
+            {t("my_name", { name: userName })}
           </Typography>
 
           <Typography variant="h4" gutterBottom sx={{ color: "#8892b0" }}>
-            body1. Lorem ipsum dolor sit ame
+            {t("home_curious")}
           </Typography>
           <Typography variant="p" gutterBottom sx={{ color: "#4f5c76" }}>
-            body2. Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-            Quos blanditiis tenetur unde suscipit, quam beatae rerum inventore-
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, quia.
-            Fugit qui nam enim eaque accusantium recusandae eius vel vero natus
-            sequi nostrum cupiditate, molestiae praesentium. Dolorum magnam sed
-            cupiditate!
-            body2. Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-            Quos blanditiis tenetur unde suscipit, quam beatae rerum inventore-
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, quia.
-            Fugit qui nam enim eaque accusantium recusandae eius vel vero natus
-            sequi nostrum cupiditate, molestiae praesentium. Dolorum magnam sed
-            cupiditate!
-            body2. Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-            Quos blanditiis tenetur unde suscipit, quam beatae rerum inventore-
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, quia.
-            Fugit qui nam enim eaque accusantium recusandae eius vel vero natus
-            sequi nostrum cupiditate, molestiae praesentium. Dolorum magnam sed
-            cupiditate!
+            {t("home_all")}
           </Typography>
+          <Stack
+            sx={{ pt: 4 }}
+            direction="row"
+            spacing={2}
+            justifyContent="start"
+          >
+            <Button
+              to="#"
+              onClick={() => (window.location = "mailto:alan.a@live.se")}
+              component={Link}
+              variant="outlined"
+              endIcon={<SendIcon />}
+            >
+              {t("btn_contact")}
+            </Button>
+            <Button
+              to="#"
+              onClick={downloadFile}
+              component={Link}
+              variant="outlined"
+              endIcon={<DownloadIcon />}
+            >
+              {t("btn_cv")}
+            </Button>
+          </Stack>
         </ThemeProvider>
       </Box>
       <ImgBox>
