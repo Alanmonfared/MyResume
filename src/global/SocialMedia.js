@@ -5,8 +5,7 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import SpeedDial from "@mui/material/SpeedDial";
 import SpeedDialAction from "@mui/material/SpeedDialAction";
-import PublicIcon from "@mui/icons-material/Public";
-
+import ConnectWithoutContactIcon from '@mui/icons-material/ConnectWithoutContact';
 const actions = [
   { icon: <GitHubIcon />, name: "Github" },
   { icon: <LinkedInIcon />, name: "LinkdeIn" },
@@ -28,17 +27,20 @@ export default function SocialMedia() {
           right: { xs: "calc(100% - 70px)", md: "auto" },
           // display: { xs: "calc(25)", sm: "none", md: "block", lg: "block" },
         }}
+        
       >
+        
         <SpeedDial
           ariaLabel="openicon"
-          icon={<PublicIcon openicon={<PublicIcon />} />}
+          sx={{ color:"#64ffda"}}
+          icon={<ConnectWithoutContactIcon openicon={<ConnectWithoutContactIcon />} />}
         >
           {actions.map((action) => (
             <SpeedDialAction
               key={action.name}
               icon={action.icon}
               tooltipTitle={action.name}
-              sx={{ backgroundColor: "transparent", color: "#fff" }}
+              sx={{ backgroundColor: "transparent", color: "#fff" }} 
             />
           ))}
         </SpeedDial>

@@ -20,9 +20,11 @@ import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { ImgBox } from "../experience/Experience.Styled";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 const theme = createTheme();
 
 export default function Erfarenhet() {
+  const { t } = useTranslation();
   return (
     <ThemeProvider theme={theme}>
       <ContainerExperience>
@@ -36,7 +38,7 @@ export default function Erfarenhet() {
               align="center"
               gutterBottom
             >
-              Erfarenhet
+              {t("btn_experience")}
             </Typography>
             <Typography
               variant="h5"
@@ -53,10 +55,10 @@ export default function Erfarenhet() {
               justifyContent="center"
             >
               <Button to="/internship" component={Link} variant="contained">
-                Praktik
+                {t("btn_internship")}
               </Button>
               <Button to="/" component={Link} variant="outlined">
-                Hem
+                {t("btn_home")}
               </Button>
             </Stack>
           </Container>
@@ -80,7 +82,10 @@ export default function Erfarenhet() {
                   backgroundColor: "transparent",
                   color: "#8892b0",
                   "&:hover": {
-                    background: "#fff",
+                    backgroundColor: (theme) =>
+                      theme.palette.mode === "light"
+                        ? theme.palette.grey[800]
+                        : theme.palette.grey[700],
                   },
                 }}
               >
@@ -94,15 +99,17 @@ export default function Erfarenhet() {
                   <Typography gutterBottom variant="h5" component="span">
                     UPS
                   </Typography>
-                  <Typography sx={{ color: "#ccd6f6" }}>2015-tjl</Typography>
-                  <Typography sx={{ color: "#ccd6f6" }}>Roll:</Typography>
-                  <Typography>Chaufför</Typography>
                   <Typography sx={{ color: "#ccd6f6" }}>
-                    Arbetsuppgift:
+                    {t("date_1")}
                   </Typography>
-                  <Typography>
-                    Leverans och hämtning av olika försändelser.
+                  <Typography sx={{ color: "#ccd6f6" }}>
+                    {t("text_role")}:
                   </Typography>
+                  <Typography>{t("text_roleTitle1")}</Typography>
+                  <Typography sx={{ color: "#ccd6f6" }}>
+                    {t("text_work")}:
+                  </Typography>
+                  <Typography>{t("text_work1")}</Typography>
                 </CardContent>
               </Card>
               <Card
@@ -111,7 +118,10 @@ export default function Erfarenhet() {
                   backgroundColor: "transparent",
                   color: "#8892b0",
                   "&:hover": {
-                    background: "#fff",
+                    backgroundColor: (theme) =>
+                      theme.palette.mode === "light"
+                        ? theme.palette.grey[800]
+                        : theme.palette.grey[700],
                   },
                 }}
               >
@@ -124,15 +134,15 @@ export default function Erfarenhet() {
                   <Typography gutterBottom variant="h5" component="span">
                     NM Global
                   </Typography>
+                  <Typography sx={{ color: "#ccd6f6" }}>2019 - 2020</Typography>
                   <Typography sx={{ color: "#ccd6f6" }}>
-                    2019 -- 2020
+                    {t("text_role")}:
                   </Typography>
-                  <Typography sx={{ color: "#ccd6f6" }}>Roll:</Typography>
-                  <Typography>Speditör</Typography>
+                  <Typography>{t("text_roleTitle2")}</Typography>
                   <Typography sx={{ color: "#ccd6f6" }}>
-                    Arbetsuppgift:
+                    {t("text_work")}:
                   </Typography>
-                  <Typography>Organisera transport av varor.</Typography>
+                  <Typography> {t("text_work2")} </Typography>
                 </CardContent>
               </Card>
               <Card
@@ -140,7 +150,10 @@ export default function Erfarenhet() {
                   backgroundColor: "transparent",
                   color: "#8892b0",
                   "&:hover": {
-                    background: "#fff",
+                    backgroundColor: (theme) =>
+                      theme.palette.mode === "light"
+                        ? theme.palette.grey[800]
+                        : theme.palette.grey[700],
                   },
                 }}
               >
@@ -153,15 +166,15 @@ export default function Erfarenhet() {
                   <Typography gutterBottom variant="h5" component="span">
                     Hallstahammars Kommun
                   </Typography>
+                  <Typography sx={{ color: "#ccd6f6" }}>2013 - 2014</Typography>
                   <Typography sx={{ color: "#ccd6f6" }}>
-                    2013 -- 2014
+                    {t("text_role")}:
                   </Typography>
-                  <Typography sx={{ color: "#ccd6f6" }}>Roll:</Typography>
-                  <Typography>Handledare</Typography>
+                  <Typography> {t("text_roleTitle3")} </Typography>
                   <Typography sx={{ color: "#ccd6f6" }}>
-                    Arbetsuppgift:
+                    {t("text_work")}:
                   </Typography>
-                  <Typography>Guide, tolk och handledning.</Typography>
+                  <Typography>{t("text_work3")}</Typography>
                 </CardContent>
               </Card>
             </Grid>

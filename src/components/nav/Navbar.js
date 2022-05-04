@@ -75,17 +75,23 @@ export default function Navbar() {
           />
           <Box sx={{ minWidth: 120 }}>
             <FormControl fullWidth>
-              <InputLabel id="demo-simple-select-label">Språk</InputLabel>
+              <InputLabel
+                id="demo-simple-select-label"
+                sx={{ color: "#64ffda" }}
+              >
+                {t("btn_language")}{" "}
+              </InputLabel>
               <Select
                 labelId="demo-simple-select-label"
                 id="demo-simple-select"
                 value={localStorage.getItem("i18nextLng")}
+                sx={{ color: "#8892b0" }}
                 label="Språk"
                 onChange={handleLanguageChange}
               >
-                <MenuItem value="en">Engelska</MenuItem>
-                <MenuItem value="se">Svenska</MenuItem>
-                <MenuItem value="fa">Persiska</MenuItem>
+                <MenuItem value="en"> {t("btn_lan1")} </MenuItem>
+                <MenuItem value="se">{t("btn_lan2")}</MenuItem>
+                <MenuItem value="fa">{t("btn_lan3")}</MenuItem>
               </Select>
             </FormControl>
           </Box>
@@ -106,7 +112,7 @@ export default function Navbar() {
                   marginX={20}
                 >
                   <Avatar
-                    alt="Remy Sharp"
+                    alt="Alan Monfared"
                     src={require("../../image/20180306_185151.jpg")}
                     sx={{ width: 98, height: 98 }}
                   />
@@ -117,7 +123,7 @@ export default function Navbar() {
                       onClick={handleClick}
                     >
                       <Typography marginTop={2} variant={"h4"}>
-                        {t("Hem")}
+                        {t("btn_home")}
                       </Typography>
                     </Link>
                   </NavbarExtendLink>
@@ -128,7 +134,7 @@ export default function Navbar() {
                       onClick={handleClick}
                     >
                       <Typography marginTop={2} variant={"h4"}>
-                        Erfarenhet
+                        {t("btn_experience")}
                       </Typography>
                     </Link>
                   </NavbarExtendLink>
@@ -139,7 +145,7 @@ export default function Navbar() {
                       onClick={handleClick}
                     >
                       <Typography marginTop={2} variant={"h4"}>
-                        Utbildning
+                        {t("btn_education")}
                       </Typography>
                     </Link>
                   </NavbarExtendLink>
@@ -150,7 +156,7 @@ export default function Navbar() {
                       onClick={handleClick}
                     >
                       <Typography marginTop={2} variant={"h4"}>
-                        Om mig
+                        {t("btn_about")}
                       </Typography>
                     </Link>
                   </NavbarExtendLink>
@@ -165,7 +171,7 @@ export default function Navbar() {
                       component={Link}
                       endIcon={<SendIcon />}
                     >
-                      Kontakta mig
+                      {t("btn_contact")}
                     </Button>
                   </Stack>
                 </Box>

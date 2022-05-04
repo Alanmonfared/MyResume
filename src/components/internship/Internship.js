@@ -1,5 +1,4 @@
 import React from "react";
-
 import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
@@ -18,28 +17,29 @@ import Fade from "@mui/material/Fade";
 import { Link } from "react-router-dom";
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
+import { useTranslation } from "react-i18next";
 
-const tiers = [
-  {
-    title: "LeoVegas",
-    description: [
-      "02/2022-04/2022",
-      "Jobbade med ett projekt som heter Lemur vilket är en adminsida för att lägga till och ta bort spel.",
-    ],
-    teknik: [
-      "JavaScript, React.Js, TypeScript, Material-UI och Styled-component",
-    ],
-  },
+// const tiers = [
+//   {
+//     title: "LeoVegas",
+//     description: [
+//       "02/2022-04/2022",
+//       "Jobbade med ett projekt som heter Lemur vilket är en adminsida för att lägga till och ta bort spel.",
+//     ],
+//     teknik: [
+//       "JavaScript, React.Js, TypeScript, Material-UI och Styled-component",
+//     ],
+//   },
 
-  {
-    title: "Digitalpartner",
-    description: [
-      "11/2021-02/2022",
-      " Utvecklande av en webshop för kund. Webshopen riktar sig in mot försäljning av kläder.",
-    ],
-    teknik: ["WordPress - Teman: Oxyen, - Flatsome. Html, Css och JavaScript"],
-  },
-];
+//   {
+//     title: "Digitalpartner",
+//     description: [
+//       "11/2021-02/2022",
+//       "Utvecklande av en webshop för kund. Webshopen riktar sig in mot försäljning av kläder.",
+//     ],
+//     teknik: ["WordPress - Teman: Oxyen, - Flatsome. Html, Css och JavaScript"],
+//   },
+// ];
 
 const leoV = (
   <Box sx={{ m: 1 }} elevation={4}>
@@ -59,6 +59,7 @@ const digi = (
 export default function Internship() {
   const [leo, setLeo] = React.useState(true);
   const [digital, setDigital] = React.useState(false);
+  const { t } = useTranslation();
 
   const handleChangeLeo = () => {
     setLeo((prev) => !prev);
@@ -78,7 +79,7 @@ export default function Internship() {
         disableGutters
         maxWidth="sm"
         component="main"
-        sx={{ pt: 8, pb: 6 }}
+        // sx={{ pt: 1, pb: 1 }}
       >
         <Typography
           component="h1"
@@ -87,7 +88,7 @@ export default function Internship() {
           sx={{ color: "#64ffda" }}
           gutterBottom
         >
-          Praktik
+          {t("btn_internship")}
         </Typography>
         <Typography
           variant="h5"
@@ -95,106 +96,121 @@ export default function Internship() {
           sx={{ color: "#ccd6f6" }}
           component="p"
         >
-         E perrfarenhet som jag har samlat på mig under min lia perioder som frontend utvecklare.
+          {t("text_internPage")}
         </Typography>
         <Stack
-              sx={{ pt: 4 }}
-              direction="row"
-              spacing={2}
-              justifyContent="center"
-            >
-              <Button to="/experience" component={Link} variant="contained">
-                Erfarenhet
-              </Button>
-              <Button to="/" component={Link} variant="outlined">
-                Hem
-              </Button>
-            </Stack>
-      </Container>
-      <Container maxWidth="md" component="main">
-        <Grid
-          container
-          spacing={5}
-          sx={{ display: "flex", justifyContent: "space-between" }}
+          sx={{ pt: 4 }}
+          direction="row"
+          spacing={2}
+          justifyContent="center"
         >
-          {tiers.map((tier) => (
-            <Grid
-              item
-              key={tier.title}
-              xs={12}
-              sm={tier.title === "Enterprise" ? 12 : 6}
-              md={6}
-            >
-              <Card
-                sx={{
-                  backgroundColor: "transparent",
-                }}
-              >
-                <CardHeader
-                  title={tier.title}
-                  subheader={tier.subheader}
-                  titleTypographyProps={{ align: "center" }}
-                  action={tier.title === "Pro" ? <StarIcon /> : null}
-                  subheaderTypographyProps={{
-                    align: "center",
-                  }}
-                  sx={{
-                    backgroundColor: (theme) =>
-                      theme.palette.mode === "light"
-                        ? theme.palette.grey[700]
-                        : theme.palette.grey[700],
-                  }}
-                />
-                <CardContent>
-                  <Box
-                    sx={{
-                      display: "flex",
-                      justifyContent: "center",
-                      alignItems: "baseline",
-                      mb: 2,
-                    }}
-                  ></Box>
-                  <ul>
-                    {tier.description.map((info) => (
-                      <Typography
-                        component="li"
-                        variant="subtitle1"
-                        align="center"
-                        sx={{ color: "#ccd6f6" }}
-                        gutterBottom
-                        key={info}
-                      >
-                        {info}
-                      </Typography>
-                    ))}
-                  </ul>
-                  <span>
-                    {tier.teknik.map((tek) => (
-                      <Typography
-                        variant="p"
-                        align="center"
-                        sx={{ color: "#4f5c76" }}
-                        key={tek}
-                        gutterBottom
-                      >
-                        <Typography
-                          variant="h6"
-                          sx={{ color: "#fff" }}
-                          align="center"
-                        >
-                          Teknik:
-                        </Typography>
-                        {tek}
-                      </Typography>
-                    ))}
-                  </span>
-                </CardContent>
-              </Card>
-            </Grid>
-          ))}
-        </Grid>
+          <Button to="/experience" component={Link} variant="contained">
+            {t("btn_experience")}
+          </Button>
+          <Button to="/" component={Link} variant="outlined">
+            {t("btn_home")}
+          </Button>
+        </Stack>
       </Container>
 
+      <Container sx={{ py: 4 }} maxWidth="md">
+        <Grid container>
+          <Grid
+            item
+            xs={12}
+            sm={12}
+            md={12}
+            sx={{
+              display: "flex",
+              flexDirection: { xs: "column", sm: "column", md: "row" },
+              justifyContent: "center",
+              marginTop: "5rem",
+            }}
+          >
+            <Card
+              sx={{
+                backgroundColor: "transparent",
+                color: "#8892b0",
+                "&:hover": {
+                  backgroundColor: (theme) =>
+                    theme.palette.mode === "light"
+                      ? theme.palette.grey[800]
+                      : theme.palette.grey[700],
+                },
+              }}
+            >
+              {/* <CardMedia
+                  component="img"
+                  src={require("../../image/ups-logo-transparent-4275.png")}
+                  alt="random"
+                  // sx={{ width: "200px" }}
+                /> */}
+              <CardContent align={"center"} sx={{ flexGrow: 1 }}>
+                <Typography
+                  sx={{ color: "#64ffda" }}
+                  gutterBottom
+                  variant="h5"
+                  component="span"
+                >
+                  LeoVegas
+                </Typography>
+                <Typography>{t("text_dateLeo")}</Typography>
+                <Typography sx={{ color: "#ccd6f6", marginTop: "1rem" }}>
+                  {t("text_leo")}
+                </Typography>
+                <Typography sx={{ color: "#8892b0", marginTop: "1rem" }}>
+                  {t("text_verktygTeknik")}:
+                </Typography>
+
+                <Typography sx={{ color: "#ccd6f6", marginTop: "1rem" }}>
+                  JavaScript, React.Js, TypeScript, Material-UI och
+                  Styled-component
+                </Typography>
+              </CardContent>
+            </Card>
+            <Card
+              sx={{
+                marginLeft: "1rem",
+                backgroundColor: "transparent",
+                color: "#8892b0",
+                "&:hover": {
+                  backgroundColor: (theme) =>
+                    theme.palette.mode === "light"
+                      ? theme.palette.grey[800]
+                      : theme.palette.grey[700],
+                },
+              }}
+            >
+              {/* <CardMedia
+                  component="img"
+                  image="https://source.unsplash.com/random"
+                  alt="random"
+                /> */}
+              <CardContent align={"center"} sx={{ flexGrow: 1 }}>
+                <Typography
+                  sx={{ color: "#64ffda" }}
+                  gutterBottom
+                  variant="h5"
+                  component="span"
+                >
+                  Digitalpartner
+                </Typography>
+
+                <Typography>{t("text_dateDigi")}</Typography>
+                <Typography sx={{ color: "#ccd6f6", marginTop: "1rem" }}>
+                  {t("text_digi")}
+                </Typography>
+                <Typography sx={{ color: "#8892b0", marginTop: "1rem" }}>
+                  {t("text_verktygTeknik")}:
+                </Typography>
+                <Typography sx={{ color: "#ccd6f6", marginTop: "1rem" }}>
+                  WordPress - Teman: Oxyen, - Flatsome. Html, Css och JavaScript
+                </Typography>
+              </CardContent>
+            </Card>
+          </Grid>
+        </Grid>
+      </Container>
       <Container
         sx={{
           marginTop: "5rem",
