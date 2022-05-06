@@ -5,6 +5,7 @@ import Experience from "./components/experience/Experience";
 import Education from "./components/education/Education";
 import Internship  from "./components/internship/Internship";
 import Navbar from "./components/nav/Navbar";
+import About from "./components/about/About";
 import SocialMedia from "./global/SocialMedia";
 import Footer from "./global/Footer";
 
@@ -19,6 +20,7 @@ function App() {
           <Route path="/experience" element={<Experience />} />
           <Route path="/education" element={<Education />} />
           <Route path="/internship" element={<Internship  />} />
+          <Route path="/about" element={<About  />} />
         </Routes>
         <SocialMedia />
       </Router>
