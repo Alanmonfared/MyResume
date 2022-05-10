@@ -1,7 +1,7 @@
 {
   "name": "resumecv",
   "version": "0.1.0",
-  "homepage": "https://alanmonfared.com",
+  "homepage": "http://alanmonfared.com",
   "private": true,
     "dependencies": {
     "@emotion/react": "^11.9.0",
