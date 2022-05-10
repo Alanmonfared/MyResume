@@ -75,12 +75,7 @@ export default function Internship() {
       />
       <CssBaseline />
 
-      <Container
-        disableGutters
-        maxWidth="sm"
-        component="main"
-        // sx={{ pt: 1, pb: 1 }}
-      >
+      <Container disableGutters maxWidth="sm" component="main" sx={{ pt: 10 }}>
         <Typography
           component="h1"
           variant="h2"

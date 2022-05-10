@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import Container from "@mui/material/Container";
 import { Nav } from "./Navbar.Styled";
@@ -21,18 +21,11 @@ import {
   createTheme,
 } from "@mui/material/styles";
 import { useTranslation } from "react-i18next";
-import i18next from "i18next";
 let theme = createTheme();
 theme = responsiveFontSizes(theme);
 
 export default function Navbar() {
   const { i18n, t } = useTranslation();
-
-  // useEffect(() => {
-  // 	if (localStorage.getItem("i18nextLng")?.length > 2) {
-  // 		i18next.changeLanguage("en");
-  // 	}
-  // }, []);
 
   const handleLanguageChange = (e) => {
     i18n.changeLanguage(e.target.value);
@@ -53,26 +46,16 @@ export default function Navbar() {
           }}
           maxWidth="xxl"
         >
-          {/* <div className="collapse navbar-collapse" id="navbarNav">
-            <ul className="navbar-nav ml-auto">
-              <li className="nav-item">
-                <select
-                  className="nav-link bg-dark border-0 ml-1 mr-2"
-                  value={localStorage.getItem("i18nextLng")}
-                  onChange={handleLanguageChange}
-                >
-                  <option value="en">Engelska</option>
-                  <option value="se">Svenska</option>
-                  <option value="fa">Persiska</option>
-                </select>
-              </li>
-            </ul>
-          </div> */}
-          <img
-            src={require("../../image/AM.png")}
-            alt="logo"
-            style={{ paddingLeft: "1.5rem" }}
-          />
+        <Link to="/">
+          
+            <img
+              src={require("../../image/{AM}.png")}
+              alt="logo"
+              style={{ paddingLeft: "1.5rem" }}
+             
+  
+            />
+        </Link>
           <Box sx={{ minWidth: 120 }}>
             <FormControl fullWidth>
               <InputLabel
@@ -190,7 +173,7 @@ export default function Navbar() {
 
 const BurgerButton = styled.button`
   margin: 0;
-  padding-right: 3.5rem;
+  padding-right: 2rem;
   border: none;
   background: none;
   font-size: 42px;
@@ -220,21 +203,18 @@ const NavbarExtendLink = styled.li`
   border: none;
   color: white;
 
-  /* 
-  animation: fadeInLeft;
-  animation-duration: 2s; */
   &:hover {
-    /* background-color: black;
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-    -webkit-border-radius: 500px;
-    -webkit-border-top-left-radius: 0;
-    border-radius: 500px;
-    border-top-left-radius: 0;
+    background-image: linear-gradient(to right, #000000 0%, #000000 50%);
+    /* padding-top: 2rem;
+    padding-bottom: 2rem; */
+    -webkit-border-radius: 300px;
+    -webkit-border-top-left-radius: 300px;
+    border-radius: 300px;
+    border-top-left-radius: 300px;
     display: flex;
     justify-content: center;
     transition: transform 300ms;
-    width: 90%;
-    height: 10%; */
+    width: 50%;
+    height: 100%;
   }
 `;

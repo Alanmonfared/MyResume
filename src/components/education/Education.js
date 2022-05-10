@@ -17,11 +17,14 @@ import Link from "@mui/material/Link";
 import MenuIcon from "@mui/icons-material/Menu";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import NotificationsIcon from "@mui/icons-material/Notifications";
-
+import { useTranslation } from "react-i18next";
+import {ImgBo } from "./Education.Styled";
 // import { mainListItems, secondaryListItems } from './listItems';
 // import Chart from './Chart';
 // import Deposits from './Deposits';
 import ButtonBases from "./ButtonBases";
+import ImgList from "./ImgList";
+import Level from "./Level";
 
 // const drawerWidth = 240;
 
@@ -54,6 +57,7 @@ import ButtonBases from "./ButtonBases";
 const mdTheme = createTheme();
 
 export default function Education() {
+  const { t } = useTranslation();
   // const [open, setOpen] = React.useState(true);
   // const toggleDrawer = () => {
   //   setOpen(!open);
@@ -61,10 +65,10 @@ export default function Education() {
 
   return (
     <ThemeProvider theme={mdTheme}>
-      <Box sx={{ display: "flex" }}>
-        <CssBaseline />
+      {/* <Box sx={{ display: "flex" }}> */}
+      {/* <CssBaseline /> */}
 
-        {/* <Drawer variant="permanent" open={open}>
+      {/* <Drawer variant="permanent" open={open}>
           <Toolbar
             sx={{
               display: 'flex',
@@ -84,150 +88,138 @@ export default function Education() {
             {secondaryListItems}
           </List>
         </Drawer> */}
-        <Box
-          component="main"
-          sx={{
-            backgroundColor: "transparent",
-            flexGrow: 1,
-            height: "100vh",
-            overflow: "auto",
-          }}
-        >
-          <Toolbar />
-          <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
-            <Grid container spacing={5}>
-              {/* Chart */}
-              <Grid item xs={12} sm={12} md={12} lg={12} sx={{display: {xs: "flex"}, flexDirection: {xs:"column"} }}>
-                <Paper
-                  sx={{
-                    p: 2,
-                    display: "flex",
-                    // flexDirection: "column",
-                    alignItems: "center",
-                    justifyContent: "space-between",
-                    height: 50,
-                    margin: 3,
-                    backgroundColor: "transparent",
-                    // ...commonStyles,
-                    borderLeft: 5,
-                    borderColor: "primary.main",
-                  }}
-                >
-                  {/* <Chart /> */}
-                  <Typography sx={{ color: "#8892b0" }}>
-                    EC utbildning
-                  </Typography>
-                  <Typography sx={{ color: "#ccd6f6", marginRight: 6 }}>
-                    2020 - 2022
-                  </Typography>
+      <Box
+        component="main"
+        sx={{
+          backgroundColor: "transparent",
+          flexGrow: 1,
+          height: "100vh",
+          // overflow: "auto",
+        }}
+      >
+        {/* <Toolbar /> */}
+        <Container maxWidth="lg" sx={{ pt: 10 }}>
+          <Typography
+            component="h1"
+            variant="h2"
+            align="center"
+            sx={{ color: "#64ffda" }}
+            gutterBottom
+          >
+            {t("btn_education")}
+          </Typography>
 
-                  <Typography sx={{ color: "#8892b0" }}>
-                    Frontend utvecklare
-                  </Typography>
-                </Paper>
-                <Paper
-                  sx={{
-                    p: 2,
-                    display: "flex",
-                    // flexDirection: "column",
-                    alignItems: "center",
-                    justifyContent: "space-between",
-                    height: 50,
-                    margin: 3,
+          <Grid container spacing={5}>
+            {/* Chart */}
+            <Grid
+              item
+              xs={12}
+              sm={12}
+              md={12}
+              lg={12}
+              sx={{
+                display: { xs: "flex" },
+                flexDirection: "column",
+                margin: "1rem",
+              }}
+            >
+              <Paper
+                sx={{
+                  p: 2,
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "space-around",
+                  height: 50,
+                  margin: 3,
+                  backgroundColor: "transparent",
+                  borderLeft: 5,
+                  borderColor: "primary.main",
+                }}
+              >
+                <Typography sx={{ color: "#8892b0", margin: "0.5rem" }}>
+                  EC utbildning
+                </Typography>
+                <Typography sx={{ color: "#ccd6f6" }}>2020 - 2022</Typography>
 
-                    backgroundColor: "transparent",
-                    borderLeft: 5,
-                    borderColor: "primary.main",
-                  }}
-                >
-                  {/* <Chart /> */}
-                  <Typography sx={{ color: "#8892b0" }}>
-                    Kunskaps Companiet
-                  </Typography>
-                  <Typography sx={{ color: "#ccd6f6", marginRight: 11 }}>
-                    2014 - 2015
-                  </Typography>
+                <Typography sx={{ color: "#8892b0" }}>
+                  {t("text_educationFront")}
+                </Typography>
+              </Paper>
+              <Paper
+                sx={{
+                  p: 2,
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "space-around",
+                  height: 50,
+                  margin: 3,
+                  backgroundColor: "transparent",
+                  borderLeft: 5,
+                  borderColor: "primary.main",
+                }}
+              >
+                <Typography sx={{ color: "#8892b0", margin: "0.1rem" }}>
+                  Kunskaps Companiet
+                </Typography>
+                <Typography sx={{ color: "#ccd6f6" }}>2014 - 2015</Typography>
 
-                  <Typography sx={{ color: "#8892b0" }}>
-                    Bygg och anläggning
-                  </Typography>
-                </Paper>
-                <Paper
-                  sx={{
-                    p: 2,
-                    display: "flex",
-                    // flexDirection: "column",
-                    alignItems: "center",
-                    justifyContent: "space-between",
-                    height: 50,
-                    margin: 3,
-                    backgroundColor: "transparent",
-                    borderLeft: 5,
-                    borderColor: "primary.main",
-                  }}
-                >
-                  {/* <Chart /> */}
-                  <Typography sx={{ color: "#8892b0" }}>Yrkeshandel</Typography>
-                  <Typography sx={{ color: "#ccd6f6" }}>2006 - 2009</Typography>
+                <Typography sx={{ color: "#8892b0" }}>
+                  {t("text_educationBygg")}
+                </Typography>
+              </Paper>
+              <Paper
+                sx={{
+                  p: 2,
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "space-around",
+                  height: 50,
+                  margin: 3,
+                  backgroundColor: "transparent",
+                  borderLeft: 5,
+                  borderColor: "primary.main",
+                }}
+              >
+                <Typography sx={{ color: "#8892b0" }}>
+                  Wenströmska Gymnasiet
+                </Typography>
+                <Typography sx={{ color: "#ccd6f6", alignSelf: "center" }}>
+                  2006 - 2009
+                </Typography>
 
-                  <Typography sx={{ color: "#8892b0" }}>
-                    Wenströmska Gymnasiet
-                  </Typography>
-                </Paper>
-              </Grid>
-              {/* Recent Deposits */}
-              {/* <Grid item xs={5} md={4} lg={3}>
-                <Paper
-                  sx={{
-                    p: 2,
-                    display: "flex",
-                    height: 50,
-                    margin: 3,
-                  }}
-                >
-                  <Deposits />
-                  <Typography sx={{ color: "#ccd6f6" }}>2020--</Typography>
-                  <Typography>2014-2015</Typography>
-                  <Typography>2006-2009</Typography>
-                </Paper>
-                <Paper
-                  sx={{
-                    p: 2,
-                    display: "flex",
-                    height: 50,
-                    margin: 3,
-                  }}
-                >
-                  <Deposits />
-                  <Typography sx={{ color: "#ccd6f6" }}>2020--</Typography>
-                  <Typography>2014-2015</Typography>
-                  <Typography>2006-2009</Typography>
-                </Paper>
-                <Paper
-                  sx={{
-                    p: 2,
-                    display: "flex",
-                    height: 50,
-                    margin: 3,
-                  }}
-                >
-                  <Deposits />
-                  <Typography sx={{ color: "#ccd6f6" }}>2020--</Typography>
-                  <Typography>2014-2015</Typography>
-                  <Typography>2006-2009</Typography>
-                </Paper>
-              </Grid> */}
-              <Grid item xs={12}>
-                
-                <Paper sx={{ p: 2, display: "flex", flexDirection: "column", backgroundColor: "transparent" }}>
-                <Typography alignSelf={"center"} sx={{margin: 5, color: "#ccd6f6" }} variant={"h4"} >Kompetens från EC Utbildning</Typography>
-                  <ButtonBases/>
-                </Paper>
-              </Grid>
+                <Typography sx={{ color: "#8892b0" }}>
+                  {t("text_educationYrkes")}
+                </Typography>
+              </Paper>
             </Grid>
-          </Container>
-        </Box>
+          </Grid>
+
+          <Grid item xs={10} sm={12} lg={12}>
+            <Box
+              sx={{
+                p: 10,
+                // display: "flex",
+                // flexDirection: "column",
+                backgroundColor: "transparent",
+              }}
+            >
+              <Typography sx={{ color: "#ccd6f6" }} variant={"h6"}>
+                {t("text_educationCompotence")}
+              </Typography>
+              <ButtonBases />
+            </Box>
+          </Grid>
+      
+        </Container>
       </Box>
+      {/* </Box> */}
+    
+      <ImgBo>
+        <img
+          src={require("../../image/imgbin_smoke-png.png")}
+          alt="logo"
+        />
+      </ImgBo>
     </ThemeProvider>
   );
 }

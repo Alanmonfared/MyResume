@@ -20,8 +20,8 @@ theme = responsiveFontSizes(theme);
 
 const downloadFile = () => {
   const link = document.createElement("a");
-  link.download= `Alan_Monfared_CV (1).pdf`;
-  link.href = `../../files/Alan_Monfared_CV (1).pdf`;
+  link.download = `Alan_Monfared_CV.pdf`;
+  link.href = `../../../public/files/Alan_Monfared_CV.pdf`;
   link.click();
 };
 

@@ -5,12 +5,29 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import SpeedDial from "@mui/material/SpeedDial";
 import SpeedDialAction from "@mui/material/SpeedDialAction";
-import ConnectWithoutContactIcon from '@mui/icons-material/ConnectWithoutContact';
+import ConnectWithoutContactIcon from "@mui/icons-material/ConnectWithoutContact";
+import AlternateEmailIcon from "@mui/icons-material/AlternateEmail";
 const actions = [
-  { icon: <GitHubIcon />, name: "Github" },
-  { icon: <LinkedInIcon />, name: "LinkdeIn" },
-  { icon: <InstagramIcon />, name: "Instagram" },
-  
+  {
+    icon: <GitHubIcon />,
+    name: "Github",
+    href: "https://github.com/Alanmonfared",
+  },
+  {
+    icon: <LinkedInIcon />,
+    name: "LinkdeIn",
+    href: "https://se.linkedin.com/in/alan-milad-monfared-b6683690",
+  },
+  {
+    icon: <InstagramIcon />,
+    name: "Instagram",
+    href: "https://www.instagram.com/alanmonfared",
+  },
+  {
+    icon: <AlternateEmailIcon />,
+    name: "Email",
+    href: "mailto:alan.a@live.se",
+  },
 ];
 
 export default function SocialMedia() {
@@ -22,25 +39,28 @@ export default function SocialMedia() {
           flexGrow: 1,
           "& > :not(style)": { m: 1 },
           position: "fixed",
-          bottom: 30,
+          bottom: 50,
           left: { md: 30 },
-          right: { xs: "calc(100% - 70px)", md: "auto" },
+          right: { xs: "calc(100% - 65px)", md: "auto" },
           // display: { xs: "calc(25)", sm: "none", md: "block", lg: "block" },
         }}
-        
       >
-        
         <SpeedDial
           ariaLabel="openicon"
-          sx={{ color:"#64ffda"}}
-          icon={<ConnectWithoutContactIcon openicon={<ConnectWithoutContactIcon />} />}
+          sx={{ color: "#64ffda" }}
+          icon={
+            <ConnectWithoutContactIcon
+              openicon={<ConnectWithoutContactIcon />}
+            />
+          }
         >
           {actions.map((action) => (
             <SpeedDialAction
               key={action.name}
               icon={action.icon}
+              href={action.href}
               tooltipTitle={action.name}
-              sx={{ backgroundColor: "transparent", color: "#fff" }} 
+              sx={{ backgroundColor: "transparent", color: "#fff" }}
             />
           ))}
         </SpeedDial>

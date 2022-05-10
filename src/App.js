@@ -7,13 +7,11 @@ import Internship  from "./components/internship/Internship";
 import Navbar from "./components/nav/Navbar";
 import About from "./components/about/About";
 import SocialMedia from "./global/SocialMedia";
-import Footer from "./global/Footer";
 
 function App() {
   return (
     <>
       <Router>
-        {/* <Footer /> */}
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />

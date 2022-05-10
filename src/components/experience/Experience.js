@@ -27,7 +27,7 @@ export default function Erfarenhet() {
   const { t } = useTranslation();
   return (
     <ThemeProvider theme={theme}>
-      <ContainerExperience>
+      <ContainerExperience sx={{ pt: 10 }}>
         {/* Hero unit */}
         <Box>
           <Container maxWidth="sm">
